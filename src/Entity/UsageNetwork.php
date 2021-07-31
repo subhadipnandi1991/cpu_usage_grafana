@@ -2,13 +2,13 @@
 
 namespace App\Entity;
 
-use App\Repository\CpuUsageRepository;
+use App\Repository\UsageNetworkRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=CpuUsageRepository::class)
+ * @ORM\Entity(repositoryClass=UsageNetworkRepository::class)
  */
-class CpuUsage
+class UsageNetwork
 {
     /**
      * @ORM\Id
@@ -18,7 +18,7 @@ class CpuUsage
     private $id;
 
     /**
-     * @ORM\Column(type="bigint", nullable=true)
+     * @ORM\Column(type="float", nullable=true)
      */
     private $lo_recv_bytes;
 
@@ -28,17 +28,17 @@ class CpuUsage
     private $lo_recv_pckts;
 
     /**
-     * @ORM\Column(type="bigint", nullable=true)
+     * @ORM\Column(type="float", nullable=true)
      */
     private $lo_trns_bytes;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
      */
-    private $lo_trbs_pckts;
+    private $lo_trns_pckts;
 
     /**
-     * @ORM\Column(type="bigint", nullable=true)
+     * @ORM\Column(type="float", nullable=true)
      */
     private $wlp7s0_recv_bytes;
 
@@ -53,7 +53,7 @@ class CpuUsage
     private $wlp7s0_recv_frms;
 
     /**
-     * @ORM\Column(type="bigint", nullable=true)
+     * @ORM\Column(type="float", nullable=true)
      */
     private $wlp7s0_trns_bytes;
 
@@ -72,12 +72,12 @@ class CpuUsage
         return $this->id;
     }
 
-    public function getLoRecvBytes(): ?string
+    public function getLoRecvBytes(): ?float
     {
         return $this->lo_recv_bytes;
     }
 
-    public function setLoRecvBytes(?string $lo_recv_bytes): self
+    public function setLoRecvBytes(?float $lo_recv_bytes): self
     {
         $this->lo_recv_bytes = $lo_recv_bytes;
 
@@ -96,36 +96,36 @@ class CpuUsage
         return $this;
     }
 
-    public function getLoTrnsBytes(): ?string
+    public function getLoTrnsBytes(): ?float
     {
         return $this->lo_trns_bytes;
     }
 
-    public function setLoTrnsBytes(?string $lo_trns_bytes): self
+    public function setLoTrnsBytes(?float $lo_trns_bytes): self
     {
         $this->lo_trns_bytes = $lo_trns_bytes;
 
         return $this;
     }
 
-    public function getLoTrbsPckts(): ?int
+    public function getLoTrnsPckts(): ?int
     {
-        return $this->lo_trbs_pckts;
+        return $this->lo_trns_pckts;
     }
 
-    public function setLoTrbsPckts(?int $lo_trbs_pckts): self
+    public function setLoTrnsPckts(?int $lo_trns_pckts): self
     {
-        $this->lo_trbs_pckts = $lo_trbs_pckts;
+        $this->lo_trns_pckts = $lo_trns_pckts;
 
         return $this;
     }
 
-    public function getWlp7s0RecvBytes(): ?string
+    public function getWlp7s0RecvBytes(): ?float
     {
         return $this->wlp7s0_recv_bytes;
     }
 
-    public function setWlp7s0RecvBytes(?string $wlp7s0_recv_bytes): self
+    public function setWlp7s0RecvBytes(?float $wlp7s0_recv_bytes): self
     {
         $this->wlp7s0_recv_bytes = $wlp7s0_recv_bytes;
 
@@ -156,12 +156,12 @@ class CpuUsage
         return $this;
     }
 
-    public function getWlp7s0TrnsBytes(): ?string
+    public function getWlp7s0TrnsBytes(): ?float
     {
         return $this->wlp7s0_trns_bytes;
     }
 
-    public function setWlp7s0TrnsBytes(string $wlp7s0_trns_bytes): self
+    public function setWlp7s0TrnsBytes(?float $wlp7s0_trns_bytes): self
     {
         $this->wlp7s0_trns_bytes = $wlp7s0_trns_bytes;
 
